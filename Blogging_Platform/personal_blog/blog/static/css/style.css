@@ -1,0 +1,82 @@
+/* static/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 100px;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+a {
+    color: #dbdae2;
+    text-decoration: none;
+    margin: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #1a0dab;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0c0dab;
+}
+
+.main {
+    margin: 80px;
+}
+
+.card-footer {
+    font-size: 24px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-footer {
+    flex-shrink: 0;
+}
+
