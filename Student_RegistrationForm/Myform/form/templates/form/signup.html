@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<style>
+    body {
+        margin:50px 0px; padding-left:300px;
+        {% comment %} text-align:center; {% endcomment %}
+        {% comment %} align:center; {% endcomment %}
+    }
+</style>
+<body>
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+         
+        <!-- Username Field -->
+        <div>
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+            {{ form.username }}
+        </div>
+         <br>
+        <!-- Password Fields -->
+        <div>
+            <label for="{{ form.password1.id_for_label }}">Password:</label>
+            {{ form.password1 }}
+        </div><br>
+        <div>
+            <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+            {{ form.password2 }}
+        </div>
+         <br>
+        <!-- Role Field -->
+        <div>
+            <label for="{{ form.role.id_for_label }}">Role:</label>
+            {{ form.role }}
+        </div>
+         <br>
+        <button type="submit">Sign up</button>
+    </form>
+</body>
+</html>

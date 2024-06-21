@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table td {
+            vertical-align: middle;
+        }
+        .btn-group {
+            display: flex;
+        }
+        .btn-group a {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Student Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "register_student" %}">Add Student</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block page_title %}
+            <h2>Student List</h2>
+        {% endblock page_title %}
+        
+        {% block page_content %}
+            <div>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Date of Birth</th>
+                            <th>Mobile</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Department</th>
+                            <th>Pincode</th>
+                            <th>Hobbies</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student.id }}</td>
+                                <td>{{ student.fname }}</td>
+                                <td>{{ student.lname }}</td>
+                                <td>{{ student.email }}</td>
+                                <td>{{ student.dob }}</td>
+                                <td>{{ student.mobile }}</td>
+                                <td>{{ student.gender }}</td>
+                                <td>{{ student.address }}</td>
+                                <td>{{ student.department.name }}</td>
+                                <td>{{ student.pincode }}</td>
+                                <td>{{ student.hobbies }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'student_detail' pk=student.id %}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Details</a>
+                                        <a href="{% url 'student_form' pk=student.id %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Update</a>
+                                        <a href="{% url 'student_confirm_delete' pk=student.id %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endblock page_content %}
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
