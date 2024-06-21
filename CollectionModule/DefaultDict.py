@@ -8,7 +8,7 @@ for i in l:
     dict1[i] +=1
 print(dict1)
 
-#this key give KeyError
+#this key give KeyError because dict not have default value
 # d={} 
 # for i in l:
 #     d[i]+=1
