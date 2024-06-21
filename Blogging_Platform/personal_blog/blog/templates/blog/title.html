@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Post Titles</title>
+    </head>
+    <body>
+        <h1>Post Titles
+        </h1>
+        <ul>
+            {% for title, categories in post_titles %}
+                <li><strong>{{ title }}</strong>: {{ categories.name }}</li>
+            {% endfor %}            
+        </ul>
+    </body>
+</html>
