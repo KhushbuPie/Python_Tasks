@@ -1,0 +1,29 @@
+{% extends "rest_framework/api.html" %}
+
+{% block branding %}
+<h1>My Custom API</h1>
+<p>Welcome to the custom browsable API interface!</p>
+{% endblock %}
+
+{% block content %}
+    <div class="custom-container">
+        {% if response %}
+            <h2>{{ view.get_view_name }}</h2>
+            <p>{{ view.get_view_description }}</p>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ renderer.render(request, response) }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        {% else %}
+            <h2>API Root</h2>
+            <ul>
+                {% for key, value in api_root_dict.items %}
+                    <li><a href="{{ value }}">{{ key }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
